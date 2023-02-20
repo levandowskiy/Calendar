@@ -9,6 +9,7 @@ let nextPrevBtn = document.getElementById("arrow-buttons");
 const days = document.querySelectorAll('.days-item');
 
 const activityInput = document.getElementById('activity');
+const modal = document.getElementById("modal");
 const form = modal.querySelector('form');
 
 function calendarRender() {
@@ -63,7 +64,7 @@ const activityInput = modal.querySelector('#activity');
 const activities = getEventsForDate(date);
 let activitiesList = '';
 if (activities.length > 0) {
-activitiesList = activities.map(activity => <li>${activity}</li>).join('');
+  activitiesList = activities.map(activity => `<li>${activity}</li>`).join('');
 }
 modal.querySelector('ul').innerHTML = activitiesList;
 modal.style.display = 'block';
@@ -130,3 +131,17 @@ form.addEventListener('submit', event => {
             activityList.appendChild(li);
             });
         }
+
+        function initLocalStorage() {
+          const days = document.querySelectorAll('.day');
+          days.forEach(day => {
+            const date = day.getAttribute('data-date');
+            if (!localStorage.getItem(date)) {
+              localStorage.setItem(date, '[]');
+            }
+          });
+        }
+        
+        window.onload = function() {
+          initLocalStorage();
+        };
