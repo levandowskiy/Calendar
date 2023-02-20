@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,13 @@
     <title>Calendar</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="wrapper">
         <div class="header">
             <p class="current-data"></p>
             <div id="arrow-buttons" class="buttons">
-                
+
                 <span id="prev" class="left-calendar-btn">❮</span>
                 <span id="next" class="right-calendar-btn">❯</span>
             </div>
@@ -28,10 +30,17 @@
                 <li class="weeksdays-item">Sat</li>
             </ul>
             <ul class="days-list">
-                
             </ul>
+        </div>
+        <div id="modal" style="display: none;">
+            <form>
+                <label for="activity">Опис активності:</label>
+                <input type="text" id="activity" name="activity">
+                <button type="submit">Зберегти</button>
+            </form>
         </div>
     </div>
     <script src="main.js"></script>
 </body>
+
 </html>
